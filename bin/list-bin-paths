@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Tell mise where to find the binaries
+echo "bin"

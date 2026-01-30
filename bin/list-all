@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# List all available bundle versions
+# Returns versions in format: 0.5.0 0.6.0 (v prefix stripped)
+
+REPO="dohzya/tools"
+
+# Fetch all tags, filter for v* (not tool-specific), extract version numbers
+gh api "repos/${REPO}/tags" --paginate \
+  | jq -r '.[].name' \
+  | grep '^v[0-9]' \
+  | grep -v '^wl-v' \
+  | grep -v '^md-v' \
+  | sed 's/^v//' \
+  | tr '\n' ' '

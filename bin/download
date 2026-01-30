@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO="dohzya/tools"
+VERSION="${ASDF_INSTALL_VERSION}"
+TAG="v${VERSION}"
+INSTALL_PATH="${ASDF_INSTALL_PATH}"
+
+# Detect platform
+OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
+ARCH="$(uname -m)"
+
+case "${OS}" in
+  darwin)
+    OS="darwin"
+    ;;
+  linux)
+    OS="linux"
+    ;;
+  *)
+    echo "Unsupported OS: ${OS}" >&2
+    exit 1
+    ;;
+esac
+
+case "${ARCH}" in
+  x86_64)
+    ARCH="x86_64"
+    ;;
+  aarch64|arm64)
+    ARCH="arm64"
+    ;;
+  *)
+    echo "Unsupported architecture: ${ARCH}" >&2
+    exit 1
+    ;;
+esac
+
+# Create bin directory
+mkdir -p "${INSTALL_PATH}/bin"
+
+# Download both tools from the bundle release
+for TOOL in wl md; do
+  BINARY_NAME="${TOOL}-${OS}-${ARCH}"
+  URL="https://github.com/${REPO}/releases/download/${TAG}/${BINARY_NAME}"
+
+  echo "Downloading ${TOOL} from ${URL}..."
+
+  curl -fsSL "${URL}" -o "${INSTALL_PATH}/bin/${TOOL}"
+  chmod +x "${INSTALL_PATH}/bin/${TOOL}"
+done
+
+echo "✅ tools ${VERSION} installed successfully (wl + md)"
