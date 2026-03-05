@@ -39,8 +39,8 @@ esac
 # Create bin directory
 mkdir -p "${INSTALL_PATH}/bin"
 
-# Download both tools from the bundle release
-for TOOL in wl md; do
+# Download all tools from the bundle release
+for TOOL in wl md recap; do
   BINARY_NAME="${TOOL}-${OS}-${ARCH}"
   URL="https://github.com/${REPO}/releases/download/${TAG}/${BINARY_NAME}"
 
@@ -50,4 +50,4 @@ for TOOL in wl md; do
   chmod +x "${INSTALL_PATH}/bin/${TOOL}"
 done
 
-echo "✅ tools ${VERSION} installed successfully (wl + md)"
+echo "✅ tools ${VERSION} installed successfully (wl + md + recap)"

@@ -1,6 +1,6 @@
 # mise Backend for dohzya/tools
 
-mise backend for installing `md` (markdown-surgeon) and `wl` (worklog) tools as a bundle.
+mise backend for installing `md` (markdown-surgeon), `wl` (worklog) and `recap` tools as a bundle.
 
 ## Installation
 
@@ -15,9 +15,10 @@ mise use https://github.com/dohzya/mise-tools@v0.5.0
 
 ## What Gets Installed
 
-This installs **both** tools together:
+This installs all tools together:
 - `wl` - Worklog tool for tracking development progress
 - `md` - Markdown-surgeon for surgical markdown manipulation
+- `recap` - Configurable project status dashboard
 
 ## Bundle Versions
 
@@ -34,6 +35,7 @@ If you need to install tools separately or use different versions, use homebrew:
 ```bash
 brew install dohzya/tools/wl
 brew install dohzya/tools/md
+brew install dohzya/tools/recap
 ```
 
 ## How It Works
