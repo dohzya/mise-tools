@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+INSTALL_PATH="${ASDF_INSTALL_PATH:?ASDF_INSTALL_PATH is required}"
+
+missing=0
+for TOOL in wl md recap dz-review; do
+  if [[ ! -x "${INSTALL_PATH}/bin/${TOOL}" ]]; then
+    missing=1
+    break
+  fi
+done
+
+if [[ "$missing" -eq 1 ]]; then
+  "${PLUGIN_DIR}/download"
+fi
