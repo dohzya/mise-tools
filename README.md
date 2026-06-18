@@ -1,6 +1,6 @@
 # mise Backend for dohzya/tools
 
-mise backend for installing `md` (markdown-surgeon), `wl` (worklog) and `recap` tools as a bundle.
+mise backend for installing `md` (markdown-surgeon), `wl` (worklog), `recap`, and `dz-review` tools as a bundle.
 
 ## Installation
 
@@ -19,12 +19,13 @@ This installs all tools together:
 - `wl` - Worklog tool for tracking development progress
 - `md` - Markdown-surgeon for surgical markdown manipulation
 - `recap` - Configurable project status dashboard
+- `dz-review` - Markdown review syntax scanner and helper CLI
 
 ## Bundle Versions
 
-Bundle releases (e.g., `v0.5.0`) contain specific versions of both tools:
+Bundle releases (e.g., `v0.5.0`) contain specific versions of the bundled tools:
 
-- `v0.5.0` = `wl-0.4.4` + `md-0.4.0`
+- Check each bundle release note for the exact `wl`, `md`, `recap`, and `dz-review` versions included
 
 Check [dohzya/tools releases](https://github.com/dohzya/tools/releases) to see what's included in each bundle.
 
@@ -36,6 +37,7 @@ If you need to install tools separately or use different versions, use homebrew:
 brew install dohzya/tools/wl
 brew install dohzya/tools/md
 brew install dohzya/tools/recap
+brew install dohzya/tools/dz-review
 ```
 
 ## How It Works
@@ -43,7 +45,7 @@ brew install dohzya/tools/recap
 This is a custom mise backend that:
 
 1. **list-all**: Fetches all GitHub release tags matching `v*` (bundle releases)
-2. **download**: Downloads both `wl` and `md` binaries for your platform
+2. **download**: Downloads bundled tool binaries for your platform
 3. **list-bin-paths**: Tells mise where the binaries are located
 
 ## Requirements
