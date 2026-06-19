@@ -6,11 +6,12 @@ mise backend for installing `md` (markdown-surgeon), `wl` (worklog), `recap`, an
 
 ```bash
 # Direct installation
-mise use https://github.com/dohzya/mise-tools@v0.5.0
+mise plugins install mise-tools https://github.com/dohzya/mise-tools.git
+mise use mise-tools@0.9.15
 
 # Or in .mise.toml
 [tools]
-"https://github.com/dohzya/mise-tools" = "0.5.0"
+mise-tools = "0.9.15"
 ```
 
 ## What Gets Installed
@@ -58,7 +59,7 @@ This is a custom mise backend that:
 
 ```bash
 # Update to latest bundle
-mise upgrade https-github-com-dohzya-mise-tools
+mise upgrade mise-tools
 
 # Or update version in .mise.toml and reinstall
 mise install
@@ -67,7 +68,7 @@ mise install
 ## Uninstalling
 
 ```bash
-mise uninstall https-github-com-dohzya-mise-tools
+mise uninstall mise-tools
 ```
 
 ## More Information
